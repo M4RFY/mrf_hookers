@@ -1,4 +1,9 @@
-resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
+fx_version 'cerulean'
+game 'gta5'
+
+author 'Marfy, GLDNRMZ'
+version '1.2.0'
+description 'sawu_hookers converted for QBCore Framework'
 
 server_scripts {
 	'server/main.lua',
@@ -28,8 +33,3 @@ files {
 	'ui/img/blowjob.png',
 	'ui/img/sex.png',
 }
-
-
--- Credit
-author 'Marfy, GLDNRMZ'
-version '1.1.0'
