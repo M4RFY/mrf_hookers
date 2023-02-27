@@ -297,18 +297,42 @@ function signalHooker()
 end
 
 -- Blowjob Animation and Speech
+-- RegisterNetEvent("mrf-hookers:startBlowjob")
+-- AddEventHandler("mrf-hookers:startBlowjob", function(playerId, hookerServerId)
+--     local playerPed = GetPlayerPed(playerId)
+--     local hookerPed = GetPlayerPed(GetPlayerFromServerId(hookerServerId))
+
+--     hookerAnim(hookerPed, "oddjobs@towing", "f_blow_job_loop")
+--     playerAnim(playerPed, "oddjobs@towing", "m_blow_job_loop")
+
+--     Citizen.Wait(35000)
+
+--     ClearPedTasks(playerPed)
+--     ClearPedTasks(hookerPed)
+--     HookerInCar = true
+-- end)
 RegisterNetEvent("mrf-hookers:startBlowjob")
-AddEventHandler("mrf-hookers:startBlowjob", function(playerId, hookerServerId)
-    local playerPed = GetPlayerPed(playerId)
-    local hookerPed = GetPlayerPed(GetPlayerFromServerId(hookerServerId))
+AddEventHandler("mrf-hookers:startBlowjob", function()
+    local ped = PlayerPedId()
+    hookerAnim(Hooker,"oddjobs@towing","f_blow_job_loop")
+    playerAnim(ped,"oddjobs@towing","m_blow_job_loop")
 
-    hookerAnim(hookerPed, "oddjobs@towing", "f_blow_job_loop")
-    playerAnim(playerPed, "oddjobs@towing", "m_blow_job_loop")
-
-    Citizen.Wait(35000)
-
-    ClearPedTasks(playerPed)
-    ClearPedTasks(hookerPed)
+    Citizen.Wait(2000)
+    PlayAmbientSpeech1(Hooker, "Sex_Oral", "Speech_Params_Force_Shouted_Clear")
+    Citizen.Wait(5000)
+    PlayAmbientSpeech1(Hooker, "Sex_Oral", "Speech_Params_Force_Shouted_Clear")
+    Citizen.Wait(5000)
+    PlayAmbientSpeech1(Hooker, "Sex_Oral", "Speech_Params_Force_Shouted_Clear")
+    Citizen.Wait(5000)
+    PlayAmbientSpeech1(Hooker, "Sex_Oral_Fem", "Speech_Params_Force_Shouted_Clear")
+    Citizen.Wait(5000)
+    PlayAmbientSpeech1(Hooker, "Sex_Oral_Fem", "Speech_Params_Force_Shouted_Clear")
+    Citizen.Wait(5000)
+    PlayAmbientSpeech1(Hooker, "Sex_Finished", "Speech_Params_Force_Shouted_Clear")
+    ClearPedTasks(ped)
+    ClearPedTasks(Hooker)
+    Citizen.Wait(5000)
+    PlayAmbientSpeech1(Hooker, "Hooker_Offer_Again", "Speech_Params_Force_Shouted_Clear")
     HookerInCar = true
 end)
 
