@@ -77,8 +77,8 @@ exports('SuspiciousActivity2', SuspiciousActivity2)
 * Add to ps-dispatch/server/sv_dispatchcodes.lua
 
 ```
-	["susactivity"] =  {displayCode = '10-66', description = "Suspicious Activity", radius = 120.0, recipientList = {'police'}, blipSprite = 469, blipColour = 52, blipScale = 0, blipLength = 0.75, sound = "Lose_1st", sound2 = "GTAO_FM_Events_Soundset", offset = "true", blipflash = "false"},
-    ["susactivity2"] =  {displayCode = '10-66', description = "Solicitation", radius = 0, recipientList = {'police'}, blipSprite = 279, blipColour = 48, blipScale = 1.0, blipLength = 0.75, sound = "Lose_1st", sound2 = "GTAO_FM_Events_Soundset", offset = "false", blipflash = "false"},
+["susactivity"] =  {displayCode = '10-66', description = "Suspicious Activity", radius = 120.0, recipientList = {'police'}, blipSprite = 469, blipColour = 52, blipScale = 0, blipLength = 0.75, sound = "Lose_1st", sound2 = "GTAO_FM_Events_Soundset", offset = "true", blipflash = "false"},
+["susactivity2"] =  {displayCode = '10-66', description = "Solicitation", radius = 0, recipientList = {'police'}, blipSprite = 279, blipColour = 48, blipScale = 1.0, blipLength = 0.75, sound = "Lose_1st", sound2 = "GTAO_FM_Events_Soundset", offset = "false", blipflash = "false"},
 ```
 * Add to ps-dispatch/locales/locales.lua
 
