@@ -1,0 +1,100 @@
+html {
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+body {
+	padding-top: 5%;
+}
+
+hr {
+	border: 1px solid rgba(0, 122, 214, 0.1);
+}
+
+b {
+	color: #FFF;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+tr {
+	border-bottom: 1px solid rgba(0, 122, 214, 0.1);
+}
+
+td {
+	padding: 7px;
+	color: #FFF;
+}
+
+#sawu_Hookers {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: transparent !important;
+}
+
+#sawu_SelectHookers {
+	position: absolute;
+    width: 70%;
+    left: 50%;
+	top: 40%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(15, 15, 15, 0.5);
+}
+
+#sawu_Hookers_Header {
+	text-align: center;
+	padding: 15px;
+	background-color: rgba(20, 20, 20, 1);
+	font-size: 20px;
+	font-weight: 500;
+	color: #007ad6;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#sawu_Hookers_Body {
+	overflow-y: auto;
+	min-height: 50%;
+	padding: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.card__title {
+	background-color: rgba(20, 20, 20, 1);
+	color: #007ad6;
+	border-bottom: 1px solid rgba(0, 122, 214, 0.2);
+	text-align: center;
+}
+
+.card__text {
+	background-color: rgba(15, 15, 15, 0.9);
+	color: #007ad6;
+	border-bottom: 1px solid rgba(0, 122, 214, 0.2);
+}
+
+.card__actions {
+	background-color: rgba(15, 15, 15, 0.9);
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: rgba(81, 81, 81, 100);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(61, 61, 61, 255);
+}
