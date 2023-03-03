@@ -1,8 +1,8 @@
 Config              		= {}
 Config.DrawDistance         = 3.0
 Config.DrawMarker         	= 10.0
-Config.BlowjobPrice			= 500  	-- Change price for blowjob here
-Config.SexPrice				= 1000  	-- Change price for sex here
+Config.BlowjobPrice			= 100  	-- Change price for blowjob here
+Config.SexPrice				= 500  	-- Change price for sex here
 Config.SocietyNightclub		= false -- Set to true if you want the money players pay to go into the nightclub society account
 
 Config.PimpGuy = {
