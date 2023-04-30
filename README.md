@@ -14,6 +14,7 @@
 
 # Dependencies
 * [ps-dispatch](https://github.com/Project-Sloth/ps-dispatch)
+* [ox_lib](https://github.com/overextended/ox_lib)
 
 # Add to ps-dispatch
 
