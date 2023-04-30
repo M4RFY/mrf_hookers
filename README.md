@@ -2,12 +2,6 @@
 * ESX to QBCore Converted by me.
 * Preview [https://youtu.be/XhoWGgdGgrk](https://youtu.be/XhoWGgdGgrk).
 
-# Additions
-* PS-Dispatch Alerts 
-* QB-Target
-* Stress Releif
-* Disabled Movement
-
 # Dependencies
 * [ps-dispatch](https://github.com/Project-Sloth/ps-dispatch)
 * [ox_lib](https://github.com/overextended/ox_lib)
