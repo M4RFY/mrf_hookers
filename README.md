@@ -2,10 +2,6 @@
 * ESX to QBCore Converted by me.
 * Preview [https://youtu.be/XhoWGgdGgrk](https://youtu.be/XhoWGgdGgrk).
 
-
-# Credit
-* Thanks to [GLDNRMZ](https://github.com/GLDNRMZ) for the Additions.
-
 # Additions
 * PS-Dispatch Alerts 
 * QB-Target
@@ -61,3 +57,7 @@ exports('SuspiciousActivity2', SuspiciousActivity2)
 
 # Original
 * [sawu_hookers](https://github.com/stianhje/sawu_hookers)
+
+# Credit
+* [GLDNRMZ](https://github.com/GLDNRMZ)
+* [AnishBplayz](https://github.com/AnishBplayz)
