@@ -1,5 +1,5 @@
 # Mrf-Hookers
-* ESX to QBCore Converted by me.
+* Compatible with QBCore Framework
 * Preview [https://youtu.be/XhoWGgdGgrk](https://youtu.be/XhoWGgdGgrk).
 
 # Dependencies
