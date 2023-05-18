@@ -1,4 +1,4 @@
-# Mrf-Hookers
+# Mrf_Hookers
 * Compatible with QBCore Framework
 * Preview [https://youtu.be/XhoWGgdGgrk](https://youtu.be/XhoWGgdGgrk).
 
