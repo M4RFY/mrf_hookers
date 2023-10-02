@@ -1,6 +1,7 @@
 # Mrf_Hookers
 * Compatible with QBCore Framework
-* Preview [https://youtu.be/XhoWGgdGgrk](https://youtu.be/XhoWGgdGgrk).
+* Preview [https://youtu.be/XhoWGgdGgrk](https://youtu.be/XhoWGgdGgrk)
+* No Support
 
 # Dependencies
 * [ps-dispatch](https://github.com/Project-Sloth/ps-dispatch)
