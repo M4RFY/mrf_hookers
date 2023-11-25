@@ -1,22 +1,27 @@
 Config = {}
+
 Config.Debug = false
 Config.Core = 'qb-core'
-Config.Notify = "qb" -- qb / okok
+Config.Target = 'qb-target'
+Config.Notify = "ox" -- ox / qb / okok
+
+Config.Dispatch = {
+	Enable = false,
+	Resource = 'ps-dispatch'
+}
+
+Config.BlowjobPrice	= 500 -- Change price for blowjob here
+Config.SexPrice	= 1000 -- Change price for sex here
 
 Config.DrawDistance = 3.0
 Config.DrawMarker = 10.0
 
-Config.BlowjobPrice	= 500  	-- Change price for blowjob here
-Config.SexPrice	= 1000  	-- Change price for sex here
-
 Config.PimpGuy = {
-	{ model = "s_m_m_bouncer_01", coords = vec4(490.69, -1085.69, 27.94, 312.84),}
+	{ model = "s_m_m_bouncer_01", coords = vec4(490.69, -1085.69, 27.94, 312.84) }
 }
 
 Config.Zones = {
-	["Pimp"] = {
-		Pos = vec4(490.69, -1085.69, 28.94, 312.84),
-	},
+	["Pimp"] = { Pos = vec4(490.69, -1085.69, 28.94, 312.84) },
 }
 
 Config.Hookerspawns = {

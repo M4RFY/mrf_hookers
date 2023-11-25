@@ -1,18 +1,8 @@
 local QBCore = exports[Config.Core]:GetCoreObject()
-local PlayerData = {}
 local Targets = {}
 local HookerSpawned = false
 local OnRouteToHooker = false
 local HookerInCar = false
-
-RegisterNetEvent('QBCore:Client:OnJobUpdate', function(job)
-    PlayerData = QBCore.Functions.GetPlayerData()
-    PlayerData.job = job
-end)
-
-RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function(Player)
-    PlayerData = Player
-end)
 
 -- Main Thread
 CreateThread(function()
@@ -46,7 +36,7 @@ RegisterNetEvent("mrf_hookers:OpenHookerMenu", function()
     Wait(100)
     SendNUIMessage({
         type    = "openHookerMenu",
-        blowjob = Config.BlowjobPrice,    
+        blowjob = Config.BlowjobPrice,
         sex     = Config.SexPrice,
     })
 end)
@@ -61,9 +51,9 @@ RegisterNUICallback("ChooseCathrine", function(data, cb)
     SetNuiFocus(false, false)
     cb("ok")
     if HookerSpawned then
-        triggerNotify('You have already choose a hooker!', 'error')  
+        triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_01") -- Cathrine
+        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_01")
         triggerNotify('Pimp', 'Tanisha Chowdhury Is Marked On Your GPS, Go & Fuck Her!', 'info')
     end
     OnRouteToHooker = true
@@ -73,9 +63,9 @@ RegisterNUICallback("ChooseTatiana", function(data, cb)
     SetNuiFocus(false, false)
     cb("ok")
     if HookerSpawned then
-        triggerNotify('You have already choose a hooker!', 'error')  
+        triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_02") -- Tatiana
+        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_02")
         triggerNotify('Pimp', 'Afia Nawar Is Marked On Your GPS, Go & Fuck Her!', 'info')
     end
     OnRouteToHooker = true
@@ -85,9 +75,9 @@ RegisterNUICallback("ChooseBootylicious", function(data, cb)
     SetNuiFocus(false, false)
     cb("ok")
     if HookerSpawned then
-        triggerNotify('You have already choose a hooker!', 'error')  
+        triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_03") -- Bootylicious
+        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_03")
         triggerNotify('Pimp', 'Marzia Alam Is Marked On Your GPS, Go & Fuck Her!', 'info')
     end
     OnRouteToHooker = true
@@ -97,9 +87,9 @@ RegisterNUICallback("ChooseVennesa", function(data, cb)
     SetNuiFocus(false, false)
     cb("ok")
     if HookerSpawned then
-        triggerNotify('You have already choose a hooker!', 'error')  
+        triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_02") -- Vennesa
+        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_02")
         triggerNotify('Pimp', 'Shefa Khan Is Marked On Your GPS, Go & Fuck Her!', 'info')
     end
     OnRouteToHooker = true
@@ -110,8 +100,10 @@ RegisterNUICallback("ChooseBlowjob", function(data, cb)
     cb("ok")
     HookerInCar = false
     TriggerServerEvent("mrf_hookers:startBlowjob")
-    if math.random(1, 100) >= 10 then
-        exports['ps-dispatch']:SuspiciousActivity2()
+    if Config.Dispatch.Enable then
+        if math.random(1, 100) >= 10 then
+            exports[Config.Dispatch.Resource]:SuspiciousActivity()
+        end
     end
 end)
 
@@ -120,8 +112,10 @@ RegisterNUICallback("ChooseSex", function(data, cb)
     cb("ok")
     HookerInCar = false
     TriggerServerEvent("mrf_hookers:startSex")
-    if math.random(1, 100) >= 10 then
-        exports['ps-dispatch']:SuspiciousActivity2()
+    if Config.Dispatch.Enable then
+        if math.random(1, 100) >= 10 then
+            exports[Config.Dispatch.Resource]:SuspiciousActivity()
+        end
     end
 end)
 
@@ -145,10 +139,10 @@ CreateThread(function()
         SetBlockingOfNonTemporaryEvents(pimp, true)
         SetEntityInvincible(pimp, true)
         FreezeEntityPosition(pimp, true)
-        loadAnimDict("mini@strip_club@idles@bouncer@base")        
+        loadAnimDict("mini@strip_club@idles@bouncer@base")
         TaskPlayAnim(pimp, "mini@strip_club@idles@bouncer@base", "base", 8.0, 1.0, -1, 01, 0, 0, 0, 0)
         Targets["pimpguy"] =
-        exports['qb-target']:AddTargetEntity(pimp, { 
+        exports[Config.Target]:AddTargetEntity(pimp, { 
             options = {
                 {
                     type = "client",
@@ -185,8 +179,10 @@ RegisterNetEvent("mrf_hookers:ChooseHooker", function(model)
                                 PlayAmbientSpeech1(Hooker, "Generic_Hows_It_Going", "Speech_Params_Force")
                                 HookerInCar = true
                                 OnRouteToHooker = false
-                                if math.random(1, 100) >= 10 then
-                                    exports['ps-dispatch']:SuspiciousActivity()
+                                if Config.Dispatch.Enable then
+                                    if math.random(1, 100) >= 10 then
+                                        exports[Config.Dispatch.Resource]:SuspiciousActivity()
+                                    end
                                 end
                             end
                         end
@@ -264,21 +260,14 @@ RegisterNetEvent("mrf_hookers:startSexAnim", function()
     playerAnim(ped, "mini@prostitutes@sexlow_veh", "low_car_sex_loop_player")
 
     local speechArray = {
-        "Sex_Generic", 
-        "Sex_Generic", 
-        "Sex_Generic", 
-        "Sex_Generic_Fem", 
-        "Sex_Generic_Fem", 
-        "Sex_Finished", 
+        "Sex_Generic",
+        "Sex_Generic",
+        "Sex_Generic",
+        "Sex_Generic_Fem",
+        "Sex_Generic_Fem",
+        "Sex_Finished",
         "Hooker_Offer_Again"
     }
-
-    QBCore.Functions.Progressbar("sex_with_hooker", "Enjoying the moment...", 8000, true, true, {
-        disableMovement = true,
-        disableCarMovement = true,
-        disableMouse = false,
-        disableCombat = true,
-    })
 
     for i=1, #speechArray do
         local speech = speechArray[i]
@@ -296,12 +285,12 @@ RegisterNetEvent("mrf_hookers:startSexAnim", function()
     ClearPedTasks(Hooker)
 end)
 
-AddEventHandler('onResourceStop', function(r) 
-    if r ~= GetCurrentResourceName() then 
-        return 
+AddEventHandler('onResourceStop', function(r)
+    if r ~= GetCurrentResourceName() then
+        return
     end
-	for k in pairs(Targets) do 
-        exports['qb-target']:RemoveZone(k) 
+	for k in pairs(Targets) do
+        exports[Config.Target]:RemoveZone(k)
     end
     unloadModel(Hooker)
 end)

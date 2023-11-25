@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>MRF_Hookers</title>
+		<title>Hookers</title>
 		<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'>
 		<link rel="stylesheet" href="libraries/vuetify.css">
 		<link rel="stylesheet" href="style.css">
@@ -8,11 +8,11 @@
 	<body>
 		<v-app id="MRF_Hookers">
 			<v-content>
-				<div id="SAWU_SelectHookers" v-show="showPimpSelector">
+				<div id="MRF_SelectHookers" v-show="showPimpSelector">
 					<div id="MRF_Hookers_Base">
 						<div id="MRF_Hookers_Header">
 							Choose a Sex Partner
-							<v-btn color="red" absolute right top small fab dark @click="CloseHookersMenu()">
+							<v-btn color="red" absolute right center small fab dark @click="CloseHookersMenu()">
 								<v-icon>close</v-icon>
 							</v-btn>
 						</div>
@@ -224,11 +224,11 @@
 						</div>
 					</div>
 				</div>
-				<div id="SAWU_SelectHookers" v-show="showHookersSelector">
+				<div id="MRF_SelectHookers" v-show="showHookersSelector">
 					<div id="MRF_Hookers_Base">
 						<div id="MRF_Hookers_Header">
 							Choose Service
-							<v-btn color="red" absolute right top small fab dark @click="CloseServiceMenu()">
+							<v-btn color="red" absolute right center small fab dark @click="CloseServiceMenu()">
 								<v-icon>close</v-icon>
 							</v-btn>
 						</div>

@@ -1,35 +1,34 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+local QBCore = exports[Config.Core]:GetCoreObject()
 local interactTick = 0
 local interactCheck = false
 local interactText = nil
 local time = 1000
 
-function loadModel(model) 
+function loadModel(model)
 	if not HasModelLoaded(model) then
 		if Config.Debug then 
-			print("^5Debug^7: ^2Loading Model^7: '^6"..model.."^7'") 
+			print("^5Debug^7: ^2Loading Model^7: '^6"..model.."^7'")
 		end
 		while not HasModelLoaded(model) do
-			if time > 0 then 
-				time -= 1 
+			if time > 0 then
+				time -= 1
 				RequestModel(model)
-			else 
-				time = 1000 
+			else
+				time = 1000
 				print("^5Debug^7: ^3LoadModel^7: ^2Timed out loading model ^7'^6"..model.."^7'") break
 			end
 			Wait(10)
 		end
-	end 
+	end
 end
 
 function unloadModel(model) 
 	if Config.Debug then 
-		print("^5Debug^7: ^2Removing Model^7: '^6"..model.."^7'") 
-	end 
+		print("^5Debug^7: ^2Removing Model^7: '^6"..model.."^7'")
+	end
 	SetModelAsNoLongerNeeded(model)
 	DeleteEntity(model)
 end
-
 
 function PedFlee(ped)
     SetPedFleeAttributes(ped, 0, 0)
@@ -37,24 +36,24 @@ function PedFlee(ped)
 end
 
 -- Loads Animation Dict
-function loadAnimDict(dict)	
-	if not HasAnimDictLoaded(dict) then 
-		if Config.Debug then 
-			print("^5Debug^7: ^2Loading Anim Dictionary^7: '^6"..dict.."^7'") 
-		end 
-		while not HasAnimDictLoaded(dict) do
-			RequestAnimDict(dict) 
-			Wait(5) 
+function loadAnimDict(dict)
+	if not HasAnimDictLoaded(dict) then
+		if Config.Debug then
+			print("^5Debug^7: ^2Loading Anim Dictionary^7: '^6"..dict.."^7'")
 		end
-	end 
+		while not HasAnimDictLoaded(dict) do
+			RequestAnimDict(dict)
+			Wait(5)
+		end
+	end
 end
 
 -- Unloads Animation Dict
-function unloadAnimDict(dict) 
-	if Config.Debug then 
-		print("^5Debug^7: ^2Removing Anim Dictionary^7: '^6"..dict.."^7'") 
+function unloadAnimDict(dict)
+	if Config.Debug then
+		print("^5Debug^7: ^2Removing Anim Dictionary^7: '^6"..dict.."^7'")
 	end
-	RemoveAnimDict(dict) 
+	RemoveAnimDict(dict)
 end
 
 -- Animation on Hooker
@@ -113,7 +112,7 @@ end
 function InteractText(text)
     local timer = GetGameTimer()
     interactTick = timer
-    if interactText == nil or interactText ~= text then 
+    if interactText == nil or interactText ~= text then
         interactText = text
         lib.showTextUI(text)
     end
@@ -123,7 +122,7 @@ function InteractText(text)
         Wait(150)
         local timer = GetGameTimer()
         interactCheck = false
-        if timer ~= interactTick then 
+        if timer ~= interactTick then
             lib.hideTextUI()
             interactText = nil
             interactTick = 0
@@ -172,10 +171,22 @@ end
 -- Triggers Notification
 function triggerNotify(title, message, type, src)
 	if Config.Notify == "okok" then
-		if not src then	exports['okokNotify']:Alert(title, message, 6000, type or 'info')
-		else TriggerClientEvent('okokNotify:Alert', src, title, message, 6000, type or 'info') end
+		if not src then
+            exports['okokNotify']:Alert(title, message, 6000, type or 'info')
+		else
+            TriggerClientEvent('okokNotify:Alert', src, title, message, 6000, type or 'info')
+        end
 	elseif Config.Notify == "qb" then
-		if not src then	TriggerEvent("QBCore:Notify", message, "primary")
-		else TriggerClientEvent("QBCore:Notify", src, message, "primary") end
+		if not src then
+            TriggerEvent("QBCore:Notify", message, type or 'primary')
+		else
+            TriggerClientEvent("QBCore:Notify", src, message, type or 'primary')
+        end
+    elseif Config.Notify == "ox" then
+		if not src then
+            lib.notify({ description = message, type = type or 'info'})
+        else
+            lib.notify(src, { description = message, type = type or 'info'})
+        end
 	end
 end
