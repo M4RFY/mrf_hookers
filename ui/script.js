@@ -35,29 +35,29 @@ const mrf_Hookers = new Vue({
             }).catch((error) => { });
         },
 
-        ChooseCathrine() {
-            axios.post(`http://${this.ResourceName}/ChooseCathrine`, {}).then((response) => {
+        ChooseMolly() {
+            axios.post(`http://${this.ResourceName}/ChooseMolly`, {}).then((response) => {
                 this.showHookersSelector    = false;
                 this.showPimpSelector       = false;
             }).catch((error) => { });
         },
 
-        ChooseTatiana() {
-            axios.post(`http://${this.ResourceName}/ChooseTatiana`, {}).then((response) => {
+        ChooseLiza() {
+            axios.post(`http://${this.ResourceName}/ChooseLiza`, {}).then((response) => {
                 this.showHookersSelector    = false;
                 this.showPimpSelector       = false;
             }).catch((error) => { });
         },
 
-        ChooseBootylicious() {
-            axios.post(`http://${this.ResourceName}/ChooseBootylicious`, {}).then((response) => {
+        ChooseJessica() {
+            axios.post(`http://${this.ResourceName}/ChooseJessica`, {}).then((response) => {
                 this.showHookersSelector    = false;
                 this.showPimpSelector       = false;
             }).catch((error) => { });
         },
 
-        ChooseVennesa() {
-            axios.post(`http://${this.ResourceName}/ChooseVennesa`, {}).then((response) => {
+        ChooseKara() {
+            axios.post(`http://${this.ResourceName}/ChooseKara`, {}).then((response) => {
                 this.showHookersSelector    = false;
                 this.showPimpSelector       = false;
             }).catch((error) => { });

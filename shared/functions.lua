@@ -1,9 +1,9 @@
-local QBCore = exports[Config.Core]:GetCoreObject()
 local interactTick = 0
 local interactCheck = false
 local interactText = nil
 local time = 1000
 
+-- Loads Ped Model
 function loadModel(model)
 	if not HasModelLoaded(model) then
 		if Config.Debug then 
@@ -22,14 +22,16 @@ function loadModel(model)
 	end
 end
 
-function unloadModel(model) 
-	if Config.Debug then 
+-- Unloads Ped Model
+function unloadModel(model)
+	if Config.Debug then
 		print("^5Debug^7: ^2Removing Model^7: '^6"..model.."^7'")
 	end
 	SetModelAsNoLongerNeeded(model)
 	DeleteEntity(model)
 end
 
+-- Peds Flee
 function PedFlee(ped)
     SetPedFleeAttributes(ped, 0, 0)
     TaskReactAndFleePed(ped, PlayerPedId())
@@ -108,7 +110,7 @@ function CreateHooker(model, spawn)
 	return Hooker
 end
 
--- ox_lib Show Text UI
+-- Drawtext
 function InteractText(text)
     local timer = GetGameTimer()
     interactTick = timer
@@ -169,24 +171,18 @@ function signalHooker(Hooker)
 end
 
 -- Triggers Notification
-function triggerNotify(title, message, type, src)
-	if Config.Notify == "okok" then
+function triggerNotify(message, type, src)
+	if Config.Notify == "qb" then
 		if not src then
-            exports['okokNotify']:Alert(title, message, 6000, type or 'info')
+            TriggerEvent("QBCore:Notify", message, type)
 		else
-            TriggerClientEvent('okokNotify:Alert', src, title, message, 6000, type or 'info')
-        end
-	elseif Config.Notify == "qb" then
-		if not src then
-            TriggerEvent("QBCore:Notify", message, type or 'primary')
-		else
-            TriggerClientEvent("QBCore:Notify", src, message, type or 'primary')
+            TriggerClientEvent("QBCore:Notify", src, message, type)
         end
     elseif Config.Notify == "ox" then
 		if not src then
-            lib.notify({ description = message, type = type or 'info'})
+            lib.notify({ description = message, type = type})
         else
-            lib.notify(src, { description = message, type = type or 'info'})
+            lib.notify(src, { description = message, type = type})
         end
 	end
 end

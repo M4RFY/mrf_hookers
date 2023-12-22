@@ -16,21 +16,21 @@ local function RelieveStress(src, amount)
 
     Player.Functions.SetMetaData('stress', Stress)
     TriggerClientEvent('hud:client:UpdateStress', src, Stress)
-    triggerNotify(src, 'You feel more relaxed', 5000, 'success')
+    triggerNotify(src, 'You feel more relaxed', 'success')
 end
 
 RegisterServerEvent('mrf_hookers:startBlowjob', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local Cash = Player.PlayerData.money.cash
-    local Price = Config.BlowjobPrice
+    local Price = Config.BlowJobPrice
 
     if Cash >= Price then
         Player.Functions.RemoveMoney('cash', Price)
         TriggerClientEvent('mrf_hookers:startBlowjobAnim', source)
         RelieveStress(src, math.random(10, 30))
     else
-        triggerNotify(src, 'Hooker', 'You do not have enough money', 'error')
+        triggerNotify(src, 'You do not have enough money', 'error')
         TriggerClientEvent('mrf_hookers:noMoney', src)
     end
 end)
@@ -46,7 +46,7 @@ RegisterServerEvent('mrf_hookers:startSex', function()
         TriggerClientEvent('mrf_hookers:startSexAnim', source)
         RelieveStress(src, math.random(20, 50))
     else
-        triggerNotify(src, 'Hooker', 'You do not have enough money', 'error')
+        triggerNotify(src, 'You do not have enough money', 'error')
         TriggerClientEvent('mrf_hookers:noMoney', src)
     end
 end)

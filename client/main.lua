@@ -1,25 +1,7 @@
-local QBCore = exports[Config.Core]:GetCoreObject()
 local Targets = {}
 local HookerSpawned = false
 local OnRouteToHooker = false
 local HookerInCar = false
-
--- Main Thread
-CreateThread(function()
-    while true do
-        Wait(5)
-        local ped = cache.ped
-        local coords, letSleep  = GetEntityCoords(ped), true
-        for k,v in pairs(Config.Zones) do
-            if GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < Config.DrawDistance and k == 'Pimp' then
-                letSleep = false
-            end
-        end
-        if letSleep then
-            Wait(1000)
-        end
-    end
-end)
 
 -- NUI EVENTS
 RegisterNetEvent("mrf_hookers:OpenPimpMenu", function()
@@ -36,7 +18,7 @@ RegisterNetEvent("mrf_hookers:OpenHookerMenu", function()
     Wait(100)
     SendNUIMessage({
         type    = "openHookerMenu",
-        blowjob = Config.BlowjobPrice,
+        blowjob = Config.BlowJobPrice,
         sex     = Config.SexPrice,
     })
 end)
@@ -47,50 +29,50 @@ RegisterNUICallback("CloseMenu", function(data, cb)
     cb("ok")
 end)
 
-RegisterNUICallback("ChooseCathrine", function(data, cb)
+RegisterNUICallback("ChooseMolly", function(data, cb)
     SetNuiFocus(false, false)
     cb("ok")
     if HookerSpawned then
         triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_01")
-        triggerNotify('Pimp', 'Tanisha Chowdhury Is Marked On Your GPS, Go & Fuck Her!', 'info')
+        TriggerEvent("mrf_hookers:ChooseHooker", "csb_stripper_01")
+        triggerNotify('Molly Is Marked On Your GPS, Go & Fuck Her!', 'success')
     end
     OnRouteToHooker = true
 end)
 
-RegisterNUICallback("ChooseTatiana", function(data, cb)
+RegisterNUICallback("ChooseLiza", function(data, cb)
     SetNuiFocus(false, false)
     cb("ok")
     if HookerSpawned then
         triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_02")
-        triggerNotify('Pimp', 'Afia Nawar Is Marked On Your GPS, Go & Fuck Her!', 'info')
+        TriggerEvent("mrf_hookers:ChooseHooker", "csb_stripper_02")
+        triggerNotify('Liza Is Marked On Your GPS, Go & Fuck Her!', 'success')
     end
     OnRouteToHooker = true
 end)
 
-RegisterNUICallback("ChooseBootylicious", function(data, cb)
+RegisterNUICallback("ChooseJessica", function(data, cb)
     SetNuiFocus(false, false)
     cb("ok")
     if HookerSpawned then
         triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_03")
-        triggerNotify('Pimp', 'Marzia Alam Is Marked On Your GPS, Go & Fuck Her!', 'info')
+        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_stripper_01")
+        triggerNotify('Jessica Is Marked On Your GPS, Go & Fuck Her!', 'success')
     end
     OnRouteToHooker = true
 end)
 
-RegisterNUICallback("ChooseVennesa", function(data, cb)
+RegisterNUICallback("ChooseKara", function(data, cb)
     SetNuiFocus(false, false)
     cb("ok")
     if HookerSpawned then
         triggerNotify('You have already choose a hooker!', 'error')
     else
-        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_hooker_02")
-        triggerNotify('Pimp', 'Shefa Khan Is Marked On Your GPS, Go & Fuck Her!', 'info')
+        TriggerEvent("mrf_hookers:ChooseHooker", "s_f_y_stripper_02")
+        triggerNotify('Kara Is Marked On Your GPS, Go & Fuck Her!', 'success')
     end
     OnRouteToHooker = true
 end)
@@ -142,7 +124,7 @@ CreateThread(function()
         loadAnimDict("mini@strip_club@idles@bouncer@base")
         TaskPlayAnim(pimp, "mini@strip_club@idles@bouncer@base", "base", 8.0, 1.0, -1, 01, 0, 0, 0, 0)
         Targets["pimpguy"] =
-        exports[Config.Target]:AddTargetEntity(pimp, { 
+        exports[Config.Target]:AddTargetEntity(pimp, {
             options = {
                 {
                     type = "client",
@@ -151,7 +133,7 @@ CreateThread(function()
                 	label = "Talk to Pimp",
                 },
             },
-            distance = 2,
+            distance = 2.0,
         })
     end
 end)
@@ -167,11 +149,11 @@ RegisterNetEvent("mrf_hookers:ChooseHooker", function(model)
             local ped = cache.ped
             local vehicle = cache.vehicle
             local Coords, letSleep  = GetEntityCoords(ped), true
-                if OnRouteToHooker then 
-                    if GetDistanceBetweenCoords(Coords, Config.Hookerspawns[spawn].x, Config.Hookerspawns[spawn].y, Config.Hookerspawns[spawn].z, true) < Config.DrawMarker then
+                if OnRouteToHooker then
+                    if GetDistanceBetweenCoords(Coords, Config.Hookerspawns[spawn].x, Config.Hookerspawns[spawn].y, Config.Hookerspawns[spawn].z, true) < 5 then
                         letSleep = false
                         if GetPedInVehicleSeat(vehicle, -1) and IsPedInVehicle(ped, vehicle, true) and IsVehicleSeatFree(vehicle, 0) and not IsVehicleSeatFree(vehicle, -1) then
-                            InteractText('[E] To signal Hooker')
+                            InteractText('[E] To Signal Hooker')
                             if IsControlJustPressed(0, 38) then
                                 TriggerEvent('animations:client:EmoteCommandStart', {"whistle"})
                                 RemoveBlip(HookerBlip)
@@ -192,7 +174,7 @@ RegisterNetEvent("mrf_hookers:ChooseHooker", function(model)
                     if GetPedInVehicleSeat(vehicle, -1) and IsPedInVehicle(ped, vehicle, true) and not IsVehicleSeatFree(vehicle, 0) and not IsVehicleSeatFree(vehicle, -1) then
                         letSleep = false
                         if IsVehicleStopped(vehicle) then
-                            InteractText('[E] To open Services | [H] Tell hooker to Leave')
+                            InteractText('[E] To Open Services | [H] Tell Hooker To Leave')
                             if IsControlJustPressed(0, 38) then
                                 PlayAmbientSpeech1(Hooker, "Hooker_Offer_Service", "Speech_Params_Force_Shouted_Clear")
                                 TriggerEvent("mrf_hookers:OpenHookerMenu")
