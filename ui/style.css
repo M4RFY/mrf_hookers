@@ -39,8 +39,8 @@ td {
 
 #mrf_SelectHookers {
 	position: absolute;
-    width: 70%;
-    left: 50%;
+	width: 70%;
+	left: 50%;
 	top: 40%;
 	transform: translate(-50%, -50%);
 	background-color: rgba(15, 15, 15, 0.5);

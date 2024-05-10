@@ -7428,7 +7428,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return h('svg', {
         style: this.svgStyles,
         attrs: {
-          xmlns: 'http://www.w3.org/2000/svg',
+          xmlns: 'https://www.w3.org/2000/svg',
           height: this.svgSize,
           width: this.svgSize,
           viewBox: this.viewBox

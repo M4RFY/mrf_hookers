@@ -15,72 +15,72 @@ const mrf_Hookers = new Vue({
 
         // START OF MAIN MENU
         OpenPimpMenu() {
-            this.showPimpSelector       = true;
-            this.showHookersSelector    = false;
+            this.showPimpSelector = true;
+            this.showHookersSelector = false;
 
         },
 
         OpenHookersMenu(blowjob, sex) {
-            this.showHookersSelector    = true;
-            this.showPimpSelector       = false;
-            this.blowjob                = blowjob;
-            this.sex                    = sex;
+            this.showHookersSelector = true;
+            this.showPimpSelector = false;
+            this.blowjob = blowjob;
+            this.sex = sex;
 
         },
 
         CloseHookersMenu() {
-            axios.post(`http://${this.ResourceName}/CloseMenu`, {}).then((response) => {
-                this.showHookersSelector    = false;
-                this.showPimpSelector       = false;
+            axios.post(`https://${this.ResourceName}/CloseMenu`, {}).then((response) => {
+                this.showHookersSelector = false;
+                this.showPimpSelector = false;
             }).catch((error) => { });
         },
 
         ChooseMolly() {
-            axios.post(`http://${this.ResourceName}/ChooseMolly`, {}).then((response) => {
-                this.showHookersSelector    = false;
-                this.showPimpSelector       = false;
+            axios.post(`https://${this.ResourceName}/ChooseMolly`, {}).then((response) => {
+                this.showHookersSelector = false;
+                this.showPimpSelector = false;
             }).catch((error) => { });
         },
 
         ChooseLiza() {
-            axios.post(`http://${this.ResourceName}/ChooseLiza`, {}).then((response) => {
-                this.showHookersSelector    = false;
-                this.showPimpSelector       = false;
+            axios.post(`https://${this.ResourceName}/ChooseLiza`, {}).then((response) => {
+                this.showHookersSelector = false;
+                this.showPimpSelector = false;
             }).catch((error) => { });
         },
 
         ChooseJessica() {
-            axios.post(`http://${this.ResourceName}/ChooseJessica`, {}).then((response) => {
-                this.showHookersSelector    = false;
-                this.showPimpSelector       = false;
+            axios.post(`https://${this.ResourceName}/ChooseJessica`, {}).then((response) => {
+                this.showHookersSelector = false;
+                this.showPimpSelector = false;
             }).catch((error) => { });
         },
 
         ChooseKara() {
-            axios.post(`http://${this.ResourceName}/ChooseKara`, {}).then((response) => {
-                this.showHookersSelector    = false;
-                this.showPimpSelector       = false;
+            axios.post(`https://${this.ResourceName}/ChooseKara`, {}).then((response) => {
+                this.showHookersSelector = false;
+                this.showPimpSelector = false;
             }).catch((error) => { });
         },
 
         ChooseBlowjob() {
-            axios.post(`http://${this.ResourceName}/ChooseBlowjob`, {}).then((response) => {
-                this.showHookersSelector    = false;
-                this.showPimpSelector       = false;
+            axios.post(`https://${this.ResourceName}/ChooseBlowjob`, {}).then((response) => {
+                this.showHookersSelector = false;
+                this.showPimpSelector = false;
             }).catch((error) => { });
         },
 
         ChooseSex() {
-            axios.post(`http://${this.ResourceName}/ChooseSex`, {}).then((response) => {
-                this.showHookersSelector    = false;
-                this.showPimpSelector       = false;
+            axios.post(`https://${this.ResourceName}/ChooseSex`, {}).then((response) => {
+                this.showHookersSelector = false;
+                this.showPimpSelector = false;
             }).catch((error) => { });
         },
 
         CloseServiceMenu() {
-            axios.post(`http://${this.ResourceName}/CloseServiceMenu`, {}).then((response) => {
-                this.showHookersSelector    = false;
-                this.showPimpSelector       = false;
+            axios.post(`https://${this.ResourceName}/CloseServiceMenu`, {}).then((response) => {
+                this.showHookersSelector = false;
+                this.showPimpSelector = false;
             }).catch((error) => { });
         },
 

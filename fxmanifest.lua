@@ -1,8 +1,9 @@
-fx_version 'bodacious'
+fx_version 'cerulean'
 game 'gta5'
+lua54 'yes'
 
 author 'MARFY'
-version '1.3.0'
+version '1.5.0'
 description 'sawu_hookers converted for QBCore Framework'
 
 shared_scripts { '@ox_lib/init.lua', 'config.lua', 'shared/*.lua' }
@@ -13,13 +14,5 @@ ui_page 'ui/index.html'
 
 files {
 	'ui/index.html',
-	'ui/libraries/axios.min.js',
-	'ui/libraries/vue.min.js',
-	'ui/libraries/vuetify.css',
-	'ui/libraries/vuetify.js',
-	'ui/script.js',
-	'ui/style.css',
-	'ui/img/*.png',
+    'ui/**/*'
 }
-
-lua54 'yes'
